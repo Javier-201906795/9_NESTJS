@@ -5,7 +5,9 @@ import { UpdateTodoDto } from './dto/update-todo.dto';
 
 @Controller('todo')
 export class TodoController {
-  constructor(private readonly todoService: TodoService) {}
+  constructor(
+    private readonly todoService: TodoService
+  ) {}
 
   @Post()
   create(@Body() createTodoDto: CreateTodoDto) {
