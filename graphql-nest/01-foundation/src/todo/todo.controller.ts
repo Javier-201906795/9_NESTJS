@@ -2,6 +2,7 @@ import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/commo
 import { TodoService } from './todo.service';
 import { CreateTodoDto } from './dto/create-todo.dto';
 import { UpdateTodoDto } from './dto/update-todo.dto';
+import { Todo } from './entities/todo.entity';
 
 @Controller('todo')
 export class TodoController {
@@ -15,7 +16,7 @@ export class TodoController {
   }
 
   @Get()
-  findAll() {
+  findAll(): Todo[] {
     return this.todoService.findAll();
   }
 
