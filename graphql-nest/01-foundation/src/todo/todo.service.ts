@@ -39,7 +39,6 @@ export class TodoService {
     const { done , description } = updateTodoDto;
     //Buscar todo
     const todo = this.findOne(id)
-    console.log("done:",done)
     if ( done !== undefined) todo.done = done;
     if ( description ) todo.description = description;
 
@@ -52,6 +51,11 @@ export class TodoService {
   }
 
   remove(id: number) {
-    return `This action removes a #${id} todo`;
+    //Buscar si existe el id
+    this.findOne(id);
+    //Elimina el item
+    this.todos = this.todos.filter( todo => {
+      return todo.id !== id
+    });
   }
 }
